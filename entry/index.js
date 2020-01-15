@@ -6,7 +6,5 @@ module.exports = (api, projectOptions) => {
   const { createEntries, entriesLoader } = require('../utils');
 
   app(api, { ...projectOptions, ...buildConfig, pages: createEntries(api, pageConfig, tempEntry) });
-  api.chainWebpack(webpackConfig => {
-    entriesLoader(api, webpackConfig, tempEntry);
-  })
+  api.chainWebpack(webpackConfig => { entriesLoader(api, webpackConfig, tempEntry) });
 }
