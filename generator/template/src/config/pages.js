@@ -1,1 +1,1 @@
-module.exports = <%= defaultPagesConfig %>
+module.exports = <%= app.entriesString %>
