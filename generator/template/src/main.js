@@ -1,5 +1,5 @@
-import Vue from 'vue'
 import App from './App.vue'
+import Vue from 'vue'
 import VAQ from 'vue-apicloud-quickstart'
 import pages from '@/config/pages'
 
