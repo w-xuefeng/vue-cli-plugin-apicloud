@@ -1,11 +1,11 @@
 module.exports = (api, options) => {
   const { getIPAdress, getEntries } = require('../utils');
-  const { userPagesConfigPath } = require('../config')
+  const { defaultPagesConfig } = require('../config')
   require('./render')(api, {
     ...options,
     ip: getIPAdress(),
     port: options.port || 8080,
-    entries: getEntries(require(api.resolve(userPagesConfigPath)))
+    entries: getEntries(defaultPagesConfig)
   })
   if (api.hasPlugin('eslint')) {
     api.onCreateComplete(() => {
