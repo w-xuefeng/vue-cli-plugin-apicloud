@@ -1,1 +1,1 @@
-module.exports = <%= app.entriesString %>
+module.exports = <%- app.entriesString %>
