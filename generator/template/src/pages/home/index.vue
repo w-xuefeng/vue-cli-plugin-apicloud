@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    首页
+  </div>
 </template>
 
 <script>
@@ -7,14 +9,13 @@ export default {
   name: "homeIndex",
   apiEvent: {
     keyback() {
-      this.$toast({
+      this.api.toast({
         msg: "按了返回键",
         duration: 2000,
         location: "bottom"
-      });
+      })
     }
-  },
-  onReady() {}
+  }
 };
 </script>
 
