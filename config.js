@@ -3,6 +3,7 @@ const userPagesConfigPath = 'src/config/pages';
 
 const buildConfig = {
   outputDir: 'dist',
+  indexPath: 'indexindex.html',
   publicPath: './',
   rebuild: true,
   filenameHashing: false,
