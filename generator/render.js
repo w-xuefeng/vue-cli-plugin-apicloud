@@ -5,6 +5,9 @@ module.exports = (api, app) => {
       "serve": `vue-cli-service serve --port ${app.port}`,
       "generate": "vue-cli-service generate"
     },
+    dependencies: {
+      "vue-apicloud-quickstart": "latest"
+    },
     devDependencies: {
       "compressing": "^1.4.0",
       "glob": "^7.1.1",

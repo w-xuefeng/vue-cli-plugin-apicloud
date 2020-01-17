@@ -6,6 +6,8 @@ const buildConfig = {
   productionSourceMap: false
 };
 
+const userPagesConfigPath = 'src/config/pages';
+
 const tempEntry = {
   template: 'public/index.html',
   chunks: ['chunk-vendors', 'chunk-common', 'index'],
@@ -25,5 +27,6 @@ const generateConfig = {
 module.exports = {
   buildConfig,
   tempEntry,
-  generateConfig
+  generateConfig,
+  userPagesConfigPath
 }
