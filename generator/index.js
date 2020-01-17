@@ -6,7 +6,6 @@ module.exports = (api, options) => {
     ip: getIPAdress(),
     port: options.port || 8080,
     entries: getEntries(defaultPagesConfig),
-    entriesString: JSON.stringify(defaultPagesConfig, null, 2)
   })
   if (api.hasPlugin('eslint')) {
     api.onCreateComplete(() => {

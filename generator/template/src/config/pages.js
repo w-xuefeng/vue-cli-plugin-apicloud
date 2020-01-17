@@ -1,1 +1,17 @@
-module.exports = <%- app.entriesString %>
+module.exports = [
+  {
+    title: '开屏广告页',
+    name: 'index',
+    path: 'index/index'
+  },
+  {
+    title: '登录页',
+    name: 'login',
+    path: 'login/index'
+  },
+  {
+    title: '应用首页',
+    name: 'home',
+    path: 'home/index'
+  }
+];
