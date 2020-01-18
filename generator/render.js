@@ -6,11 +6,6 @@ module.exports = (api, app) => {
     },
     dependencies: {
       "vue-apicloud-quickstart": "latest"
-    },
-    devDependencies: {
-      "compressing": "^1.4.0",
-      "glob": "^7.1.1",
-      "js-base64": "^2.5.1"
     }
   })
   api.render('./template', { title: '<%= htmlWebpackPlugin.options.title %>', app });
