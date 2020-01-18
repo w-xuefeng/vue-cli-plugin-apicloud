@@ -1,9 +1,7 @@
-const app = require('@vue/cli-service/lib/config/app.js')
-
 module.exports = (api, projectOptions) => {
   const { buildConfig, tempEntry, userPagesConfigPath } = require('../config')
   const { createEntries, entriesLoader } = require('../utils')
-  app(api, {
+  require('@vue/cli-service/lib/config/app.js')(api, {
     ...projectOptions,
     ...buildConfig,
     pages: createEntries(

@@ -1,9 +1,9 @@
 module.exports = (api, options) => {
-  const { getIPAdress, getEntries } = require('../utils')
+  const { getIPAddress, getEntries } = require('../utils')
   const { defaultPagesConfig } = require('../config')
   require('./render')(api, {
     ...options,
-    ip: getIPAdress(),
+    ip: getIPAddress(),
     port: options.port || 8080,
     entries: getEntries(defaultPagesConfig),
   })

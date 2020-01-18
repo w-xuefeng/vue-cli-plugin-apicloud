@@ -137,7 +137,7 @@ function copyOtherFiles (from, to, api) {
   source.forEach(e => fs.copyFileSync(e.path, `${resolve(api, to)}${e.name}`));
 }
 
-function getIPAdress () {
+function getIPAddress () {
   const interfaces = require('os').networkInterfaces();
   for (let devName in interfaces) {
     let iface = interfaces[devName];
@@ -163,6 +163,6 @@ module.exports = {
   resolve,
   getSource,
   generate,
-  getIPAdress,
+  getIPAddress,
   getEntries
 }
