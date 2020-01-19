@@ -17,17 +17,8 @@
 vue add @w-xuefeng/apicloud
 ```
 
-> ## apicloud 代码[加密规范](https://docs.apicloud.com/Dev-Guide/Code-Specification)
->
-> 在选择网站的加密功能时，需要遵循代码文件的命名规范：
->
-> 文件夹命名，文件命名不能带 - 或多个. 不要有大写字符
-> 
-> 正确文件命名格式举例：login.js
-> 
-> 错误文件命名格式举例：login-test.js; login.test.js; login-test-js.js
-> 
-> 正确文件夹命名格式举例： loginhtml
-> 
-> 错误文件夹命名格式举例： login-html; login.html
+# 使用步骤
 
+配合 `vue-apicloud-quickstart` 使用
+
+详见 [vue-apicloud-quickstart](https://github.com/w-xuefeng/vue-apicloud-quickstart)
