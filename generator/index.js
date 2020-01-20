@@ -5,7 +5,7 @@ module.exports = (api, options) => {
   require('./render')(api, {
     ...options,
     port,
-    ip: getIPAddress(port).localUrlForTerminal,
+    ip: getIPAddress(port).lanUrlForConfig,
     entries: getEntries(defaultPagesConfig)
   })
   if (api.hasPlugin('eslint')) {
