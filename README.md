@@ -11,13 +11,13 @@
 ### 快速使用 vue.js 开发移动端 APP
 
 
-# 安装使用
+# 安装 （Install）
 
 ```shell
 vue add @w-xuefeng/apicloud
 ```
 
-# 使用步骤
+# 使用 （Usge）
 
 配合 `vue-apicloud-quickstart` 使用
 

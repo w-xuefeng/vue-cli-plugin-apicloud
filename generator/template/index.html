@@ -13,7 +13,7 @@
     window.apiready = function () {
       api.openWin({
         name: '<%= app.entries[0].name %>',
-        url: 'http://<%= app.ip %>:<%= app.port %>/<%= app.entries[0].htmlpath %>.html',
+        url: '<%= app.ip + app.entries[0].htmlpath %>.html',
         slidBackEnabled: false
       });
     };
