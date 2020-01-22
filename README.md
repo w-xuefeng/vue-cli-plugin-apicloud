@@ -5,11 +5,9 @@
   <img width="200" src="./generator/template/public/res/img/logo.png">
 
   <h1>vue-cli-plugin-apicloud</h1>  
+  <h3>快速使用 vue.js 开发移动端 APP</h3>
 
 </div>
-
-### 快速使用 vue.js 开发移动端 APP
-
 
 # 安装 （Install）
 
@@ -17,7 +15,7 @@
 vue add @w-xuefeng/apicloud
 ```
 
-# 使用 （Usge）
+# 使用 （Usage）
 
 配合 `vue-apicloud-quickstart` 使用
 
