@@ -19,21 +19,170 @@
         <span class="app-adverting-text-apicloud">apicloud</span>
         <span>齐飞， web 共 原生一色！</span>
       </div>
+      <div class="app-loading" :class="{ timeout: timeout <= 0 }">
+        <div v-if="timeout <= 0" @click="enterApp" class="app-loading-text">{{ text }}</div>
+        <svg
+          :class="{ 'svg-timeout': timeout <= 0 }"
+          data-v-1badc801
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          width="100%"
+          height="100%"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="xMidYMid"
+          style="margin: auto; display: block;"
+        >
+          <g data-v-1badc801>
+            <circle data-v-1badc801 cx="73.6342" cy="50" r="4" fill="#2f7e5c">
+              <animate
+                data-v-1badc801
+                attributeName="cx"
+                repeatCount="indefinite"
+                dur="0.9803921568627451s"
+                values="95;35"
+                keyTimes="0;1"
+                begin="-0.6834s"
+              />
+              <animate
+                data-v-1badc801
+                attributeName="fill-opacity"
+                repeatCount="indefinite"
+                dur="0.9803921568627451s"
+                values="0;1;1"
+                keyTimes="0;0.2;1"
+                begin="-0.6834s"
+              />
+            </circle>
+            <circle data-v-1badc801 cx="94.8584" cy="50" r="4" fill="#2f7e5c">
+              <animate
+                data-v-1badc801
+                attributeName="cx"
+                repeatCount="indefinite"
+                dur="0.9803921568627451s"
+                values="95;35"
+                keyTimes="0;1"
+                begin="-0.3366s"
+              />
+              <animate
+                data-v-1badc801
+                attributeName="fill-opacity"
+                repeatCount="indefinite"
+                dur="0.9803921568627451s"
+                values="0;1;1"
+                keyTimes="0;0.2;1"
+                begin="-0.3366s"
+              />
+            </circle>
+            <circle data-v-1badc801 cx="55.4583" cy="50" r="4" fill="#2f7e5c">
+              <animate
+                data-v-1badc801
+                attributeName="cx"
+                repeatCount="indefinite"
+                dur="0.9803921568627451s"
+                values="95;35"
+                keyTimes="0;1"
+                begin="0s"
+              />
+              <animate
+                data-v-1badc801
+                attributeName="fill-opacity"
+                repeatCount="indefinite"
+                dur="0.9803921568627451s"
+                values="0;1;1"
+                keyTimes="0;0.2;1"
+                begin="0s"
+              />
+            </circle>
+          </g>
+          <g data-v-1badc801 transform="translate(-15 0)">
+            <path
+              data-v-1badc801
+              d="M50 50L20 50A30 30 0 0 0 80 50Z"
+              fill="#2196f3"
+              transform="rotate(30.6875 50 50)"
+            >
+              <animateTransform
+                data-v-1badc801
+                attributeName="transform"
+                type="rotate"
+                repeatCount="indefinite"
+                dur="0.9803921568627451s"
+                values="0 50 50;45 50 50;0 50 50"
+                keyTimes="0;0.5;1"
+              />
+            </path>
+            <path
+              data-v-1badc801
+              d="M50 50L20 50A30 30 0 0 1 80 50Z"
+              fill="#2196f3"
+              transform="rotate(-30.6875 50 50)"
+            >
+              <animateTransform
+                data-v-1badc801
+                attributeName="transform"
+                type="rotate"
+                repeatCount="indefinite"
+                dur="0.9803921568627451s"
+                values="0 50 50;-45 50 50;0 50 50"
+                keyTimes="0;0.5;1"
+              />
+            </path>
+            <path
+              data-v-1badc801
+              d="M50 50L20 50A30 30 0 0 0 80 50Z"
+              fill="#2196f3"
+              transform="rotate(90 50 50)"
+            />
+          </g>
+        </svg>
+      </div>
     </div>
     <div class="app-logo flex-center">
       <img alt="app-logo" src="res/img/logo.png" height="80%" />
-      <span class="app-logo-text">Vue-APICloud-Quickstart</span>
+      <div class="app-logo-text flex-column">
+        <span>Vue-APICloud-Quickstart</span>
+        <span class="app-logo-text-author">Powered by w-xuefeng</span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'index'
+  name: 'index',
+  data () {
+    return {
+      timeout: 5,
+      timer: null,
+      text: ''
+    }
+  },
+  methods: {
+    enterApp () {
+      const isLogin = this.$api.getStorage('userinfo')
+      this.$page.push({ name: isLogin ? 'home' : 'login' })
+    },
+    count () {
+      clearInterval(this.timer)
+      this.timer = setInterval(() => {
+        this.timeout--
+        if (this.timeout <= 0) {
+          clearInterval(this.timer)
+          setTimeout(() => {
+            this.text = '开启探索旅程'
+          }, 800)
+        }
+      }, 1000)
+    }
+  },
+  onReady () {
+    this.count()
+    this.$bindKeyBackExitApp()
+  }
 }
 </script>
 
-<style lang="scss">
+<style>
 html,
 body {
   margin: 0;
@@ -42,11 +191,16 @@ body {
   overflow: hidden;
 }
 </style>
-<style lang="scss" scoped>
+<style scoped>
 .flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }
 
 .flex-column-center {
@@ -161,6 +315,50 @@ body {
   color: #0d8c79;
   margin-left: 10px;
   font-size: 18px;
+}
+
+.app-loading {
+  width: 50px;
+  height: 50px;
+  transition: all 2s;
+  transform: translateY(80px);
+  overflow: hidden;
+}
+
+.app-loading-text {
+  width: 100%;
+  height: 100%;
+  color: #2196f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 2s;
+  overflow: hidden;
+}
+
+.app-logo-text-author {
+  font-size: 12px;
+}
+
+.svg-timeout {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: -100%;
+  bottom: 100%;
+}
+
+.timeout {
+  width: 50%;
+  max-width: 200px;
+  color: #2196f3;
+  border: 1px solid #2196f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 2s;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 400px) {
