@@ -5,18 +5,21 @@
   <img width="200" src="./generator/template/public/res/img/logo.png">
 
   <h1>vue-cli-plugin-apicloud</h1>  
-  <h3>快速使用 vue.js 开发移动端 APP</h3>
+  <h3>Fast development of mobile app using Vue.js</h3>
+
+[![npm (scoped)](https://img.shields.io/npm/v/@w-xuefeng/vue-cli-plugin-apicloud?color=%23008eff&style=flat-square)](https://www.npmjs.com/package/@w-xuefeng/vue-cli-plugin-apicloud)
+[![npm](https://img.shields.io/npm/dt/@w-xuefeng/vue-cli-plugin-apicloud?style=flat-square)](https://www.npmjs.com/package/@w-xuefeng/vue-cli-plugin-apicloud)
 
 </div>
 
-# 安装 （Install）
+## Install
 
 ```shell
 vue add @w-xuefeng/apicloud
 ```
 
-# 使用 （Usage）
+## Usage
 
-配合 `vue-apicloud-quickstart` 使用
+Use with `vue-apicloud-quickstart`
 
-详见 [vue-apicloud-quickstart](https://github.com/w-xuefeng/vue-apicloud-quickstart)
+For details, see the [vue-apicloud-quickstart](https://github.com/w-xuefeng/vue-apicloud-quickstart)
