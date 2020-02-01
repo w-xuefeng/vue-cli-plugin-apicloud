@@ -2,6 +2,7 @@
   <div class="home" @click="proxyClick">
     <img alt="Vue logo" src="res/img/logo.png" width="50%" />
     <HelloWorld msg="Welcome to Your Vue.js App with APICloud" />
+    <div class="logout" @click="logout">退出登录</div>
   </div>
 </template>
 
@@ -14,6 +15,10 @@ export default {
     HelloWorld
   },
   methods: {
+    logout () {
+      this.$api.rmStorage('userinfo')
+      this.$page.push({ name: 'login' })
+    },
     proxyClick (event) {
       const { target } = event
       if (target.tagName === 'A') {
@@ -44,6 +49,17 @@ export default {
   margin-top: 60px;
   img {
     max-width: 300px;
+  }
+  .logout {
+    width: 50%;
+    max-width: 200px;
+    height: 40px;
+    line-height: 40px;
+    margin: 20px auto;
+    color: #ff1515;
+    border: 1px solid #f32121;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
 }
 </style>
