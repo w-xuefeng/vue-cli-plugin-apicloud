@@ -13,5 +13,10 @@ module.exports = [
     title: '应用首页',
     name: 'home',
     path: 'home/index'
+  },
+  {
+    title: 'web页面',
+    name: 'web',
+    path: 'home/web'
   }
-];
+]

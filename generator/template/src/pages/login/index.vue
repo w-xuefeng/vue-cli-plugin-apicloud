@@ -40,6 +40,7 @@ export default {
   methods: {
     initRequest () {
       const _this = this
+      this.$req.setBaseUrl('https://api.wangxuefeng.com.cn/')
       this.$req.interceptor = function () {
         // 请求拦截器
         // 在发起请求前执行
@@ -73,7 +74,7 @@ export default {
       this.loading = true
       this.initRequest()
       this.$req
-        .post(`https://api.wangxuefeng.com.cn/vaq/?t=${Base64.encodeURI(this.type)}`, {
+        .post(`vaq/?t=${Base64.encodeURI(this.type)}`, {
           username: this.user,
           password: this.password
         })
