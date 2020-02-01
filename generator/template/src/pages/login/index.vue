@@ -5,59 +5,24 @@
       <input class="login-form-input" type="text" placeholder="请输入用户名" v-model="user">
       <div class="login-form-tip">用户名:任意非空字符串</div>
       <input class="login-form-input" type="password" placeholder="请输入密码" v-model="password">
-      <div class="login-form-tip">密码:123456</div>
+      <div class="login-form-tip">密码:{{ passwordVal }}</div>
       <div class="login-form-btn" @click="login">{{ loading ? '正在登录中...' : '登录' }}</div>
     </div>
   </div>
 </template>
 
 <script>
-import { Base64 } from 'js-base64'
-
 export default {
   name: 'login',
   data () {
     return {
       user: '',
       password: '',
+      passwordVal: '123456',
       loading: false
     }
   },
-  computed: {
-    type () {
-      if (typeof api !== 'undefined') {
-        return [
-          this.api.systemType,
-          this.api.systemVersion,
-          this.api.deviceName,
-          this.api.deviceModel,
-          this.api.connectionType
-        ].join(' ')
-      }
-      return `PC ${navigator.userAgent}`
-    }
-  },
   methods: {
-    initRequest () {
-      const _this = this
-      this.$req.setBaseUrl('https://api.wangxuefeng.com.cn/')
-      this.$req.interceptor = function () {
-        // 请求拦截器
-        // 在发起请求前执行
-        this.requestOptions.headers = {
-          ...this.requestOptions.headers,
-          'Authorization': Base64.encode(`${Math.random() * 1000}V${Math.floor(new Date().getTime() / 1000)}A${_this.user}Q`)
-        }
-        return true
-        // 返回值觉得是否发起请求
-        // 返回 true 继续发送请求
-        // 返回 false 拦截请求，取消发送
-      }
-      this.$req.handleError = function (err) {
-        // 公共错误处理
-        console.log(err)
-      }
-    },
     saveUserInfo (userinfo) {
       this.$api.setStorage('userinfo', userinfo)
     },
@@ -72,26 +37,15 @@ export default {
         return
       }
       this.loading = true
-      this.initRequest()
-      this.$req
-        .post(`vaq/?t=${Base64.encodeURI(this.type)}`, {
-          username: this.user,
-          password: this.password
-        })
-        .then(rs => {
-          this.loading = false
-          if (rs.status) {
-            this.$toast({ msg: '登录成功' })
-            this.saveUserInfo(rs.data)
-            this.$page.push({ name: 'home' })
-          } else {
-            this.$toast({ msg: rs.msg })
-          }
-        })
-        .catch(err => {
-          this.loading = false
-          console.log(err)
-        })
+      setTimeout(() => {
+        this.loading = false
+        if (this.password !== this.passwordVal) {
+          return this.$toast({ msg: '密码错误' })
+        }
+        this.$toast({ msg: '登录成功' })
+        this.saveUserInfo({ user: this.user })
+        this.$page.push({ name: 'home' })
+      }, 1000)
     }
   },
   onReady () {

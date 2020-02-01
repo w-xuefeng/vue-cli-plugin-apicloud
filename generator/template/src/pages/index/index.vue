@@ -359,6 +359,7 @@ body {
   justify-content: center;
   transition: all 2s;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @media screen and (min-width: 400px) {
