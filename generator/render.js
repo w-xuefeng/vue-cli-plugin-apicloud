@@ -5,7 +5,7 @@ module.exports = (api, app) => {
       "generate": "vue-cli-service generate"
     },
     dependencies: {
-      "vue-apicloud-quickstart": "latest"
+      "vue-apicloud-quickstart": `${app.vaqver}`
     }
   })
   api.render('./template', { title: '<%= htmlWebpackPlugin.options.title %>', app });

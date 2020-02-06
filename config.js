@@ -1,6 +1,8 @@
 const defaultPagesConfig = require('./generator/template/src/config/pages');
 const userPagesConfigPath = 'src/config/pages';
 
+const vaqver = '^1.0.11';
+
 const buildConfig = {
   outputDir: 'dist',
   indexPath: 'indexindex.html',
@@ -27,6 +29,7 @@ const generateConfig = {
 };
 
 module.exports = {
+  vaqver,
   buildConfig,
   tempEntry,
   generateConfig,
