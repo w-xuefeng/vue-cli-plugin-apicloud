@@ -39,7 +39,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped>
 .home {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -47,19 +47,20 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  img {
-    max-width: 300px;
-  }
-  .logout {
-    width: 50%;
-    max-width: 200px;
-    height: 40px;
-    line-height: 40px;
-    margin: 20px auto;
-    color: #ff1515;
-    border: 1px solid #f32121;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-  }
+}
+.home img {
+  max-width: 300px;
+}
+.home .logout {
+  width: 50%;
+  max-width: 200px;
+  height: 40px;
+  line-height: 40px;
+  margin: 20px auto;
+  color: #ff1515;
+  border: 1px solid #f32121;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 </style>
+
