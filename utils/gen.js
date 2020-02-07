@@ -3,7 +3,8 @@ module.exports = (api, projectOptions) => {
     const { generateConfig } = require('../config')
     const { generate, resolve } = require('../utils')
     const { indexHTML, configXML, target, targetZip, files } = generateConfig;
-    const { outputDir = 'dist', rebuild = true } = projectOptions;
+    const { outputDir = 'dist' } = projectOptions;
+    const rebuild = true;
     const FROME = resolve(api, outputDir);
     const INDEXFILE = resolve(api, indexHTML);
     const CONFIGXML = resolve(api, configXML);
