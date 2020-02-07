@@ -39,12 +39,20 @@ function resolve (api, dir) {
 function getSource (FROME) {
   let source = [];
   let dir = [];
+
+  const excludeFile = ['index.html'];
+  // 要忽略的文件
+  // index.html 为页面导航，构建打包时需要忽略
+
   glob.sync(`${FROME}/**`).forEach(pathname => {
     if (fs.statSync(pathname).isFile()) {
-      source.push({
-        path: pathname,
-        name: pathname.replace(/[\S\s]*\/dist/g, '/dist')
-      });
+      let tempFile = pathname.split('/')
+      if (!excludeFile.includes(tempFile[tempFile.length - 1])) {
+        source.push({
+          path: pathname,
+          name: pathname.replace(/[\S\s]*\/dist/g, '/dist')
+        })
+      }
     } else {
       dir.push(pathname.replace(/[\S\s]*\/dist/g, '/dist'));
     }
