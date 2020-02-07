@@ -1,13 +1,8 @@
 module.exports = (api, projectOptions) => {
-  const { buildConfig, tempEntry, userPagesConfigPath } = require('../config')
+  const { tempEntry, userPagesConfigPath } = require('../config')
   const { createEntries, entriesLoader } = require('../utils')
   const options = {
     ...projectOptions,
-    ...buildConfig,
-    devServer: {
-      ...projectOptions.devServer,
-      disableHostCheck: true
-    },
     pages: createEntries(
       api,
       require(api.resolve(userPagesConfigPath)),
