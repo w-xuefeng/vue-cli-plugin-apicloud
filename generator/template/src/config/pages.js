@@ -1,10 +1,5 @@
 module.exports = [
   {
-    title: '页面导航',
-    name: 'pageIndex',
-    path: 'index'
-  },
-  {
     title: '开屏广告页',
     name: 'index',
     path: 'index/index'

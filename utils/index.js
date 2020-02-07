@@ -19,6 +19,15 @@ function createEntries (api, pageConfig, tempEntry) {
       entry: api.resolve(`${tempEntry.entry}?page=${page.path}`),
       filename: `${pageName}.html`
     };
+    
+    // 页面导航入口
+    result['index'] = {
+      ...tempEntry,
+      title: '页面导航',
+      chunks: ['chunk-vendors', 'chunk-common', 'index'],
+      entry: api.resolve(`${tempEntry.entry}?page=index`),
+      filename: `index.html`
+    }
     return result;
   }, {});
 }
