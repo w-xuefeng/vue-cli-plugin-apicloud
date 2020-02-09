@@ -14,9 +14,17 @@
 
 ## Install
 
-```shell
-vue add @w-xuefeng/apicloud
+``` shell
+$ vue add @w-xuefeng/apicloud
 ```
+
+or
+
+``` shell
+$ npm i @w-xuefeng/apicloud     # or use yarn
+$ vue invoke @w-xuefeng/apicloud
+```
+
 
 ## Usage
 
