@@ -1,6 +1,6 @@
 {
   "name": "@w-xuefeng/vue-cli-plugin-apicloud",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "vue-cli plugin to add apicloud",
   "private": false,
   "main": "index.js",
