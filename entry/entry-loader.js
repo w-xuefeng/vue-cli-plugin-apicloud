@@ -2,7 +2,7 @@ const loaderUtils = require('loader-utils');
 const path = require('path');
 const fs = require('fs');
 
-module.exports = function() {
+module.exports = function () {
   const content = fs
     .readFileSync(path.join(process.cwd(), 'src/main.js'))
     .toString();
@@ -12,11 +12,11 @@ module.exports = function() {
       // 页面导航 Loader
       if (page === 'index') {
         return content.replace(
-          /'(.*?)'/,
+          /["|']\.\/App.vue["|']/,
           `'@w-xuefeng/vue-cli-plugin-apicloud/entry/pageIndex'`
         );
       }
-      return content.replace(/'(.*?)'/, `'@/pages/${page.replace(/\\/g, '/')}'`);
+      return content.replace(/["|']\.\/App.vue["|']/, `'@/pages/${page.replace(/\\/g, '/')}'`);
     }
   }
   return content;
