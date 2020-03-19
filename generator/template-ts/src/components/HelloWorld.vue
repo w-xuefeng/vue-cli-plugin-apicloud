@@ -9,7 +9,11 @@
         target="_blank"
         rel="noopener"
       >vue-cli documentation</a> and
-      <a href="https://docs.apicloud.com" target="_blank" rel="noopener">apicloud documentation</a>.
+      <a
+        href="https://docs.apicloud.com"
+        target="_blank"
+        rel="noopener"
+      >apicloud documentation</a>.
     </p>
     <h3>Ecosystem</h3>
     <ul>
@@ -39,17 +43,17 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator'
+
+@Component
+export default class HelloWorld extends Vue {
+  @Prop() private msg!: string;
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
 h3 {
   margin: 40px 0 0;
 }

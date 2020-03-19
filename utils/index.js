@@ -9,6 +9,7 @@ function createEntries (api, pageConfig, tempEntry) {
     if (!page.path) {
       console.err(`page path must be required!`);
     }
+    const useTS = fs.existsSync(api.resolve('tsconfig.json'))
     const pageName = page.path.replace(/\/(\w)/, (match, $1) =>
       $1.toLocaleLowerCase()
     );
@@ -16,7 +17,7 @@ function createEntries (api, pageConfig, tempEntry) {
       ...tempEntry,
       title: page.title,
       chunks: ['chunk-vendors', 'chunk-common', pageName],
-      entry: api.resolve(`${tempEntry.entry}?page=${page.path}`),
+      entry: api.resolve(`${tempEntry.entry}?page=${page.path}&useTs=${useTS}`),
       filename: `${pageName}.html`
     };
     
@@ -25,7 +26,7 @@ function createEntries (api, pageConfig, tempEntry) {
       ...tempEntry,
       title: '页面导航',
       chunks: ['chunk-vendors', 'chunk-common', 'index'],
-      entry: api.resolve(`${tempEntry.entry}?page=index`),
+      entry: api.resolve(`${tempEntry.entry}?page=index&useTs=${useTS}`),
       filename: `index.html`
     }
     return result;

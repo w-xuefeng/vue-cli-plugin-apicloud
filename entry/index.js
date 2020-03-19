@@ -1,11 +1,22 @@
+const fs = require('fs');
+
 module.exports = (api, projectOptions) => {
-  const { tempEntry, userPagesConfigPath } = require('../config')
+  let pages = []
+  let { tempEntry, userPagesConfigPath } = require('../config')
   const { createEntries, entriesLoader } = require('../utils')
+  if (fs.existsSync(api.resolve('tsconfig.json'))) {
+    console.log('[VAQ] 项目使用 Typescript\n');
+    userPagesConfigPath = `${userPagesConfigPath}.ts`
+    tempEntry.entry = `src/main.ts`
+    pages = eval(`${fs.readFileSync(api.resolve(userPagesConfigPath)).toString().replace(/export default /, '')}`)
+  } else {
+    pages = require(api.resolve(userPagesConfigPath))
+  }
   const options = {
     ...projectOptions,
     pages: createEntries(
       api,
-      require(api.resolve(userPagesConfigPath)),
+      pages,
       tempEntry
     )
   }
