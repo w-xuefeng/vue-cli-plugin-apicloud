@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 module.exports = (api, app) => {
   const useTS = fs.existsSync(api.resolve('tsconfig.json'))
   api.extendPackage({
