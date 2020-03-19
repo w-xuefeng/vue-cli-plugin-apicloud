@@ -1,4 +1,5 @@
 module.exports = (api, app) => {
+  const useTS = fs.existsSync(api.resolve('tsconfig.json'))
   api.extendPackage({
     scripts: {
       "serve": `vue-cli-service serve --port ${app.port}`,
@@ -8,5 +9,5 @@ module.exports = (api, app) => {
       "vue-apicloud-quickstart": `${app.vaqver}`
     }
   })
-  api.render('./template', { title: '<%= htmlWebpackPlugin.options.title %>', app });
+  api.render(useTS ? './template-ts' : './template', { title: '<%= htmlWebpackPlugin.options.title %>', app });
 }
