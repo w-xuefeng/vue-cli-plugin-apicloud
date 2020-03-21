@@ -149,7 +149,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { VueAPICloud, APIEvent } from 'vue-apicloud-quickstart'
+import { VueAPICloud } from 'vue-apicloud-quickstart'
 
 @VueAPICloud
 @Component
@@ -174,11 +174,6 @@ export default class IndexIndex extends Vue {
         }, 800)
       }
     }, 1000)
-  }
-
-  @APIEvent({ extra: 0 })
-  scrolltobottom () {
-    console.log(123)
   }
 
   onReady () {

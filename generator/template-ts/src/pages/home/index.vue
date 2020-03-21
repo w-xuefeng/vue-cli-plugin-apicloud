@@ -61,7 +61,7 @@ export default class HomeIndex extends Vue {
   height: 40px;
   line-height: 40px;
   margin: 20px auto;
-  color: #1515;
+  color: #ff1515;
   border: 1px solid #f32121;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
