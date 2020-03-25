@@ -1,7 +1,7 @@
 import App from './App.vue'
 import Vue from 'vue'
 import VAQ from 'vue-apicloud-quickstart'
-import pages from '@/config/pages'
+import pages from '@/config/pages.json'
 
 Vue.config.productionTip = false
 
