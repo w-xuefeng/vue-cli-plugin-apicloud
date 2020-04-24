@@ -19,6 +19,8 @@ module.exports = function () {
       }
       return content.replace(/["|']\.\/App.vue["|']/, `'@/pages/${page.replace(/\\/g, '/')}'`);
     }
+    return content;
   }
-  return content;
+  console.error('Page entry load error');
+  return `console.error('Page entry load error')`;
 }
