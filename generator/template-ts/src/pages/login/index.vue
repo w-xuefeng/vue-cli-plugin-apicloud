@@ -23,7 +23,7 @@ export default class LoginIndex extends Vue {
   passwordVal = '123456'
   loading = false
 
-  saveUserInfo (userinfo: any) {
+  saveUserInfo(userinfo: Record<string, string | number>) {
     this.$api.setStorage('userinfo', userinfo)
   }
 
