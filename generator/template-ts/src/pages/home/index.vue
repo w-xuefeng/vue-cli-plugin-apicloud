@@ -23,11 +23,12 @@ export default class HomeIndex extends Vue {
     this.$page.push({ name: 'login' })
   }
 
-  proxyClick (event: any) {
-    const { target } = event
-    if (target.tagName === 'A') {
+  proxyClick(event: MouseEvent) {
+    const target = event.target as HTMLAnchorElement;
+    const webPath = this.$n2p('web');
+    if (webPath && target.tagName === 'A') {
       event.preventDefault()
-      this.$page.open(this.$n2p('web')!, {
+      this.$page.open(webPath, {
         name: `web-window-${target.href}`,
         pageParam: {
           name: `web-frame-${target.href}`,
