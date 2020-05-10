@@ -1,7 +1,7 @@
 const defaultPagesConfig = require('./generator/template/src/config/pages');
 const userPagesConfigPath = 'src/config/pages.json';
 
-const vaqver = '^1.0.24';
+const vaqver = '^1.0.25';
 
 const tempEntry = {
   template: 'public/index.html',
