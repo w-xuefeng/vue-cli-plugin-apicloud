@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
+    <h1 class="msg">{{ msg }}</h1>
+    <p class="subtitle">
       For a guide and recipes on how to configure / customize this project,
       <br />check out the
       <a
@@ -18,7 +18,7 @@
     <h3>Ecosystem</h3>
     <ul>
       <li>
-        <a href="https://vaq.wangxuefeng.com.cn" target="_blank" rel="noopener">vue-apicloud-start</a>
+        <a href="https://vaq.wangxuefeng.com.cn" target="_blank" rel="noopener">vue-apicloud-quickstart</a>
       </li>
       <li>
         <a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a>
@@ -67,5 +67,11 @@ li {
 }
 a {
   color: #42b983;
+}
+.msg {
+  font-size: 18px;
+}
+.subtitle {
+  color: rgba(0, 0, 0, 0.55);
 }
 </style>

@@ -152,7 +152,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import { VueAPICloud } from 'vue-apicloud-quickstart'
 
 @VueAPICloud
-@Component
+@Component({ statusBar: 'transparent' })
 export default class IndexIndex extends Vue {
   timeout = 5
   timer?: number = undefined
@@ -165,7 +165,7 @@ export default class IndexIndex extends Vue {
 
   count () {
     clearInterval(this.timer)
-    this.timer = setInterval(() => {
+    this.timer = window.setInterval(() => {
       this.timeout--
       if (this.timeout <= 0) {
         clearInterval(this.timer)
